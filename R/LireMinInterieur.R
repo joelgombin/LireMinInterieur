@@ -14,7 +14,7 @@ enableJIT(3)
 #'  
 #'  @return un \code{data.frame} avec les colonnes conservées ainsi que, pour chaque nuance politique, une colonne avec le total des voix, une colonne avec le score rapporté aux inscrits, une colonne avec le score rapporté aux exprimés. Enfin, pour chaque nuance, une colonne indique le nombre de candidats (ou de listes) qu'il y avait dans la circonscription territoriale.
 #'  @export
-#'  @import compiler dplyr
+#'  @import compiler
 #'  @examples
 #'  data(Eur2014Dpts)
 #'  names(Eur2014Dpts)

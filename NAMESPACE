@@ -2,4 +2,3 @@
 
 export(lire)
 import(compiler)
-import(dplyr)
