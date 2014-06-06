@@ -1,0 +1,11 @@
+LireMinInterieur 0.2
+====================
+
+* un bug signalé par Frédérik Cassor, consistant à ne prendre en compte pour chaque ligne que la première occurrence d'une étiquette, est réglé.
+* la vitesse d'exécution du code a été améliorée d'un facteur de l'ordre de 60 en utilisant systématiquement des matrices plutôt que des data frames.
+* la fonction `LireMinInterieur` compte désormais séparément le nombre de candidats ou listes par territoire pour chaque nuance. 
+
+LireMinInterieur 0.1
+====================
+
+* Première version publiée de ce code.

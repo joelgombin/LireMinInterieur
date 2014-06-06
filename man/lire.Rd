@@ -17,7 +17,7 @@ lire(X, keep, col, keep.names = names(res), gap = 3)
 \item{gap}{décalage entre les colonnes avec les étiquettes et les colonnes avec le nombre de voix. Par défaut, 3.}
 }
 \value{
-un \code{data.frame} avec les colonnes conservées ainsi que, pour chaque nuance politique, une colonne avec le total des voix, une colonne avec le score rapporté aux inscrits, une colonne avec le score rapporté aux exprimés. Enfin, une colonne indique le nombre de candidats (ou de listes) qu'il y avait dans la circonscription territoriale.
+un \code{data.frame} avec les colonnes conservées ainsi que, pour chaque nuance politique, une colonne avec le total des voix, une colonne avec le score rapporté aux inscrits, une colonne avec le score rapporté aux exprimés. Enfin, pour chaque nuance, une colonne indique le nombre de candidats (ou de listes) qu'il y avait dans la circonscription territoriale.
 }
 \description{
 La fonction \code{lire} est utile pour transformer les fichiers de résultats électoraux diffusés par le ministère de l'Intérieur français, lorsque l'offre électorale n'est pas homogène sur l'ensemble du territoire (législatives, européennes, cantonales, régionales...). Pour ce faire, les résultats sont agrégés en fonction des étiquettes attribuées par le ministère de l'intérieur.
@@ -25,6 +25,6 @@ La fonction \code{lire} est utile pour transformer les fichiers de résultats é
 \examples{
 data(Eur2014Dpts)
  names(Eur2014Dpts)
- res <- lire(Eur2014Dpts, keep = c(2,4,5,7,9,12,15), col=c(seq(19,229,7)), keep.names=c("CodeDpt", "Inscrits", "Asbtentions","Votants", "Blancs", "Nuls", "Exprimés"))
+ res <- lire(Eur2014Dpts, keep = c(2,4,5,7,9,12,15), col=c(seq(19,229,7)), keep.names=c("CodeDpt", "Inscrits", "Abstentions","Votants", "Blancs", "Nuls", "Exprimés"))
 }
 

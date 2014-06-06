@@ -12,9 +12,9 @@ enableJIT(3)
 #'  @param keep.names le nom à donner aux colonnes conservées en l'état (paramètre \code{keep}). Par défaut, le nom de ces colonnes dans le \code{data.frame X}. Il est nécessaire qu'il y ait une colonne intitulée "Inscrits" et une colonne intitulée "Exprimés". 
 #'  @param gap décalage entre les colonnes avec les étiquettes et les colonnes avec le nombre de voix. Par défaut, 3.
 #'  
-#'  @return un \code{data.frame} avec les colonnes conservées ainsi que, pour chaque nuance politique, une colonne avec le total des voix, une colonne avec le score rapporté aux inscrits, une colonne avec le score rapporté aux exprimés. Enfin, une colonne indique le nombre de candidats (ou de listes) qu'il y avait dans la circonscription territoriale.
+#'  @return un \code{data.frame} avec les colonnes conservées ainsi que, pour chaque nuance politique, une colonne avec le total des voix, une colonne avec le score rapporté aux inscrits, une colonne avec le score rapporté aux exprimés. Enfin, pour chaque nuance, une colonne indique le nombre de candidats (ou de listes) qu'il y avait dans la circonscription territoriale.
 #'  @export
-#'  @import compiler
+#'  @import compiler dplyr
 #'  @examples
 #'  data(Eur2014Dpts)
 #'  names(Eur2014Dpts)
