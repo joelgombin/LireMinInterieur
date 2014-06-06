@@ -24,8 +24,8 @@ lire <- function(X, keep, col, keep.names = names(res), gap=3) {
   # on s'assure qu'il n'y a pas de factors qui traînent mais que des characters
   X[,sapply(X, is.factor)] <- as.character(X[,sapply(X, is.factor)])  
   # on crée un df dans lequel on va stocker les résultats
-  res <- X[,keep]
-  names(res) <- keep.names
+  res1 <- X[,keep]
+  names(res1) <- keep.names
   
   # on récupère l'ensemble des nunances possibles
   nuances <- unique(unlist(X[,col]))[!seq_along(unique(unlist(X[,col]))) %in% match("",unique(unlist(X[,col])))]
@@ -34,18 +34,19 @@ lire <- function(X, keep, col, keep.names = names(res), gap=3) {
   valeurs <- as.matrix(X[,col + gap])
   
   candidats <- paste("NbCand", nuances, sep="")
-  res[,nuances] <- 0
-  res[candidats] <- 0
+  res2 <- matrix(0, nrow=dim(res1)[1], ncol=length(nuances) + length(candidats), dimnames=list(c(), c(nuances, candidats)), byrow=TRUE)
+  
+  
   
   for (i in 1:length(nuances)) {
     for (j in 1:dim(etiquettes)[1]) {
       index <- which(etiquettes[j,] == nuances[i])
-      res[j,nuances[i]] <- sum(valeurs[j, index])
-      res[j,candidats[i]] <- sum(length(index))
+      res2[j,nuances[i]] <- sum(valeurs[j, index])
+      res2[j,candidats[i]] <- sum(length(index))
     }
   }  
   
-  
+  res <- cbind(res1, res2)
   res[,paste(nuances, ".ins", sep="")] <- res[,nuances]/res[,"Inscrits"]*100
   res[,paste(nuances, ".exp", sep="")] <- res[,nuances]/res[,"Exprimés"]*100
   return(res)
