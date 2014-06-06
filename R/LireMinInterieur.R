@@ -30,20 +30,20 @@ lire <- function(X, keep, col, keep.names = names(res), gap=3) {
   # on récupère l'ensemble des nunances possibles
   nuances <- unique(unlist(X[,col]))[!seq_along(unique(unlist(X[,col]))) %in% match("",unique(unlist(X[,col])))]
   
-  etiquettes <- X[,col]
-  valeurs <- X[,col + gap]
-  valeurs$index <- 1:nrow(valeurs)
+  etiquettes <- as.matrix(X[,col])
+  valeurs <- as.matrix(X[,col + gap])
   
   candidats <- paste("NbCand", nuances, sep="")
   res[,nuances] <- 0
   res[candidats] <- 0
   
-  for (i in valeurs$index) {
-    for (j in 1:length(etiquettes[i,][!etiquettes[i,] %in% ""])) {
-      res[i, etiquettes[i,j]] <- res[i, etiquettes[i,j]] + valeurs[i,j]
-      res[i, paste("NbCand", etiquettes[i,j], sep="")] <- res[i, paste("NbCand", etiquettes[i,j], sep="")] +1 
+  for (i in 1:length(nuances)) {
+    for (j in 1:dim(etiquettes)[1]) {
+      index <- which(etiquettes[j,] == nuances[i])
+      res[j,nuances[i]] <- sum(valeurs[j, index])
+      res[j,candidats[i]] <- sum(length(index))
     }
-  }
+  }  
   
   
   res[,paste(nuances, ".ins", sep="")] <- res[,nuances]/res[,"Inscrits"]*100
