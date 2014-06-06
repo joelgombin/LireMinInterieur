@@ -18,7 +18,7 @@ enableJIT(3)
 #'  @examples
 #'  data(Eur2014Dpts)
 #'  names(Eur2014Dpts)
-#'  res <- lire(Eur2014Dpts, keep = c(2,4,5,7,9,12,15), col=c(seq(19,229,7)), keep.names=c("CodeDpt", "Inscrits", "Asbtentions","Votants", "Blancs", "Nuls", "Exprimés"))
+#'  res <- lire(Eur2014Dpts, keep = c(2,4,5,7,9,12,15), col=c(seq(19,229,7)), keep.names=c("CodeDpt", "Inscrits", "Abstentions","Votants", "Blancs", "Nuls", "Exprimés"))
 
 lire <- function(X, keep, col, keep.names = names(res), gap=3) {
   # on s'assure qu'il n'y a pas de factors qui traînent mais que des characters
@@ -34,13 +34,16 @@ lire <- function(X, keep, col, keep.names = names(res), gap=3) {
   valeurs <- X[,col + gap]
   valeurs$index <- 1:nrow(valeurs)
   
-  increment <- function(x, n, etiquettes) ifelse(n %in% etiquettes[x["index"],], sum(x[match(n, etiquettes[x["index"],])]), 0)
+  candidats <- paste("NbCand", nuances, sep="")
+  res[,nuances] <- 0
+  res[candidats] <- 0
   
-  
-  res[,nuances] <- sapply(nuances, function(n) {
-    apply(valeurs, 1, function(x) increment(x, n, etiquettes))
-  })
-  res$NbCand <- apply(etiquettes, 1, function(x) sum(!(x %in% "")))
+  for (i in valeurs$index) {
+    for (j in 1:length(etiquettes[i,][!etiquettes[i,] %in% ""])) {
+      res[i, etiquettes[i,j]] <- res[i, etiquettes[i,j]] + valeurs[i,j]
+      res[i, paste("NbCand", etiquettes[i,j], sep="")] <- res[i, paste("NbCand", etiquettes[i,j], sep="")] +1 
+    }
+  }
   
   
   res[,paste(nuances, ".ins", sep="")] <- res[,nuances]/res[,"Inscrits"]*100
