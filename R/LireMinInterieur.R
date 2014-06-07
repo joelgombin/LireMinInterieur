@@ -1,5 +1,5 @@
 # compilation en bytecode de la fonction
-enableJIT(3)
+compiler::enableJIT(3)
 
 
 #' Fonction pour transformer les fichiers du ministère de l'intérieur en data.frame utilisable
@@ -64,3 +64,15 @@ lire <- function(X, keep, col, keep.names = names(res), gap=3) {
 #' @name Eur2014Dpts
 #' @source \url{http://www.data.gouv.fr/fr/dataset/elections-europeennes-2014-resulta-1}
 NULL 
+
+
+#' Version interactive de la fonction \code{lire}
+#' 
+#' Cette fonction lance une application shiny qui permet d'utiliser de manière interactive la fonction \code{lire}.
+#' 
+#' @export
+#' @import shiny
+
+lireInteractif <- function() {
+  runApp("./inst/LireMinInterieur/")
+}

@@ -1,6 +1,7 @@
 LireMinInterieur 0.3
 ====================
 
+* Nouvelle fonction `lireInteractif` qui lance une application shiny pour utiliser la fonction `lire`. 
 * Problème avec la documentation du package réglé
 
 
