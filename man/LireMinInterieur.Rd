@@ -8,7 +8,7 @@
 Ce package offre des outils pour nettoyer les fichiers électoraux du ministère de l'intérieur.
 }
 \author{
-Joël Gombin \email{joel.gombin@gmail.com}
+Joel Gombin \email{joel.gombin@gmail.com}
 }
 \keyword{package}
 

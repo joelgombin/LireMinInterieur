@@ -56,7 +56,7 @@ shinyServer(function(input, output, session) {
       paste("data-", Sys.Date(), ".csv", sep="")
     },
     content = function(con) {
-      write.csv(df_trans(), con)
+      write.csv(df_trans(), con, row.names=FALSE)
     }
   )
   
