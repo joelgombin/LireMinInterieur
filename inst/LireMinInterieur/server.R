@@ -2,7 +2,7 @@ library(shiny)
 library(LireMinInterieur)
 
 shinyServer(function(input, output, session) {
-
+  includeScript("www/selectize.min.js")
   df <- reactive({
     input$load
     df <- isolate({
