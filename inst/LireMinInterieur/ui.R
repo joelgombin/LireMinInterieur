@@ -20,8 +20,9 @@ shinyUI(fluidPage(
         numericInput("gap", label="Combien y a-t-il de colonnes entre les colonnes avec les étiquettes et celles avec le nombre de voix ?", value=3, min=1, step=1),
         HTML("<BR>"),
         actionButton("validate", "Transformer le fichier")
-      )
-    ),
+        ),
+      helpText(HTML("<BR><BR><p>Cette application a été développée par <a href='http://www.joelgombin.fr'>Joël Gombin</a>.</p><p>Le code source est disponible sur <a href='http://www.github.com/joelgombin/LireMinInterieur'>mon compte Github</a>.</p>"))
+      ),
     mainPanel(
       tabsetPanel(id="tab",
         tabPanel("Fichier avant transformation", dataTableOutput(outputId="tableau_before"), value="before"),
