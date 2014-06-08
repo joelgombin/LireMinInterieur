@@ -2,7 +2,7 @@ library(shiny)
 options(shiny.maxRequestSize=100*1024^2)
 
 shinyUI(fluidPage(
-  
+  includeScript("www/selectize.min.js")
   # Application title
   titlePanel("Transformer les fichiers électoraux du ministère de l'Intérieur"),
   sidebarLayout(
