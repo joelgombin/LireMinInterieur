@@ -1,5 +1,5 @@
 library(shiny)
-options(encoding = "utf8")
+# options(encoding = "utf8")
 options(shiny.maxRequestSize=100*1024^2)
 
 shinyUI(fluidPage(
