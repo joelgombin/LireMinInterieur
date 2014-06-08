@@ -1,15 +1,16 @@
 library(shiny)
 library(LireMinInterieur)
-options(encoding = "utf8")
 
 
 shinyServer(function(input, output, session) {
-  includeScript("www/selectize.min.js")
   df <- reactive({
     input$load
-    df <- isolate({
-      if (input$load==0) return(NULL)
-      else read.csv((input$file)$datapath, header=input$header, sep=input$separator, dec=input$decimal, stringsAsFactor=FALSE)
+    isolate({
+      if (input$load==0) df <- NULL
+      else {
+        df <- read.csv((input$file)$datapath, header=input$header, sep=input$separator, dec=input$decimal, stringsAsFactor=FALSE)
+        names(df) <- iconv(names(df), from="", to="UTF-8")
+      }
     })
     return(df)
   })
