@@ -11,7 +11,6 @@ shinyUI(fluidPage(
       radioButtons("separator", label="Séparateur", c("Virgule" = ",", "Point virgule" = ";")),
       radioButtons("decimal", label="Séparateur décimal", c("Virgule" = ",", "Point" = ".")),
       actionButton("load", "Lire le jeu de données"),
-      help
       conditionalPanel(
         condition = "input.load > 0",
         htmlOutput("selectCol"),
