@@ -3,10 +3,10 @@ options(encoding = "utf8")
 options(shiny.maxRequestSize=100*1024^2)
 
 shinyUI(fluidPage(
-  includeScript("www/selectize.min.js"),
   titlePanel("Transformer les fichiers électoraux du ministère de l'Intérieur"),
   sidebarLayout(
     sidebarPanel(
+      includeScript("www/selectize.min.js"),
       fileInput("file", label = h3("Sélectionner un fichier csv"), accept=c('text/csv', 'text/comma-separated-values,text/plain')),
       checkboxInput("header", label="Y a-t-il des titres aux colonnes ?", value=TRUE),
       radioButtons("separator", label="Séparateur", c("Virgule" = ",", "Point virgule" = ";")),
