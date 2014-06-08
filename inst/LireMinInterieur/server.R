@@ -1,5 +1,7 @@
 library(shiny)
 library(LireMinInterieur)
+options(encoding = "utf8")
+
 
 shinyServer(function(input, output, session) {
   includeScript("www/selectize.min.js")
