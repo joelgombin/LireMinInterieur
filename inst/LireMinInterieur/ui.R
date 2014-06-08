@@ -1,5 +1,6 @@
 library(shiny)
 options(shiny.maxRequestSize=100*1024^2)
+Sys.setlocale("LC_ALL", "fr_FR.UTF-8")
 
 shinyUI(fluidPage(
   titlePanel("Transformer les fichiers électoraux du ministère de l'Intérieur"),
@@ -10,6 +11,7 @@ shinyUI(fluidPage(
       radioButtons("separator", label="Séparateur", c("Virgule" = ",", "Point virgule" = ";")),
       radioButtons("decimal", label="Séparateur décimal", c("Virgule" = ",", "Point" = ".")),
       actionButton("load", "Lire le jeu de données"),
+      help
       conditionalPanel(
         condition = "input.load > 0",
         htmlOutput("selectCol"),

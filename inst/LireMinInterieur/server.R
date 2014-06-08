@@ -1,5 +1,6 @@
 library(shiny)
 library(LireMinInterieur)
+Sys.setlocale("LC_ALL", "fr_FR.UTF-8")
 
 
 shinyServer(function(input, output, session) {
