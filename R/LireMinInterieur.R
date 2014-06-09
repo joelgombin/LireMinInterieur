@@ -20,7 +20,7 @@ compiler::enableJIT(3)
 #'  names(Eur2014Dpts)
 #'  res <- lire(Eur2014Dpts, keep = c(2,4,5,7,9,12,15), col=c(seq(19,229,7)), keep.names=c("CodeDpt", "Inscrits", "Abstentions","Votants", "Blancs", "Nuls", "Exprimés"))
 
-lire <- function(X, keep, col, keep.names = names(res), gap=3) {
+lire <- function(X, keep, col, keep.names = names(res1), gap=3) {
   # on s'assure qu'il n'y a pas de factors qui traînent mais que des characters
   X[,sapply(X, is.factor)] <- as.character(X[,sapply(X, is.factor)])  
   # on crée un df dans lequel on va stocker les résultats
