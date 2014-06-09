@@ -9,6 +9,7 @@ Maintainer: Joël Gombin <joel.gombin@gmail.com>
 Description: Ce package offre des outils pour nettoyer les fichiers électoraux
     du ministère de l'intérieur.
 License: GPL3
-Encoding: UTF8
+Encoding: UTF-8
+Language: fr
 Imports:
     shiny

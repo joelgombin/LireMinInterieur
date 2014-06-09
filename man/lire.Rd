@@ -3,7 +3,7 @@
 \alias{lire}
 \title{Fonction pour transformer les fichiers du ministère de l'intérieur en data.frame utilisable}
 \usage{
-lire(X, keep, col, keep.names = names(res), gap = 3)
+lire(X, keep, col, keep.names = names(res1), gap = 3)
 }
 \arguments{
 \item{X}{un data.frame brut. Généralement importé depuis un CSV.}
