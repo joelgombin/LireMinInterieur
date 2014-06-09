@@ -1,3 +1,9 @@
+LireMinInterieur 0.31
+=====================
+
+* Bug sur les valeurs par défaut de `keep.names` réglé (signalé par Frédérik Cassor). 
+
+
 LireMinInterieur 0.3
 ====================
 
