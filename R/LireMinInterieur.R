@@ -74,5 +74,5 @@ NULL
 #' @import shiny
 
 lireInteractif <- function() {
-  runApp("./inst/LireMinInterieur/")
+  runApp("./inst/liremininterieur/")
 }
