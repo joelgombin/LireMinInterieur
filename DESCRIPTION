@@ -2,7 +2,7 @@ Package: LireMinInterieur
 Type: Package
 Title: Ce package offre des outils pour nettoyer les fichiers électoraux du
     ministère de l'intérieur.
-Version: 0.3
+Version: 0.32
 Date: 2014-06-05
 Author: Joël Gombin
 Maintainer: Joël Gombin <joel.gombin@gmail.com>
