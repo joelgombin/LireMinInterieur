@@ -1,6 +1,9 @@
 library(shiny)
 options(shiny.maxRequestSize=100*1024^2)
-Sys.setlocale("LC_ALL", "fr_FR.UTF-8")
+switch(Sys.info()[['sysname']],
+       Windows= {Sys.setlocale(category = "LC_ALL", locale = "fra")},
+       Linux  = {Sys.setlocale("LC_ALL", "fr_FR.UTF-8")},
+       Darwin = {Sys.setlocale("LC_ALL", "fr_FR.UTF-8")})
 
 shinyUI(fluidPage(
   titlePanel("Transformer les fichiers électoraux du ministère de l'Intérieur"),

@@ -1,6 +1,9 @@
 library(shiny)
 library(LireMinInterieur)
-Sys.setlocale("LC_ALL", "fr_FR.UTF-8")
+switch(Sys.info()[['sysname']],
+       Windows= {Sys.setlocale(category = "LC_ALL", locale = "fra")},
+       Linux  = {Sys.setlocale("LC_ALL", "fr_FR.UTF-8")},
+       Darwin = {Sys.setlocale("LC_ALL", "fr_FR.UTF-8")})
 
 
 shinyServer(function(input, output, session) {
