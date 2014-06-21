@@ -26,16 +26,16 @@ shinyServer(function(input, output, session) {
   
   
   output$selectCol <- renderUI({
-    selectizeInput("keep", label="Quelles colonnes faut-il conserver en l'état ?", choices=names(df()), multiple=TRUE)
+    selectizeInput("keep", label="Which columns should be kept unchanged?", choices=names(df()), multiple=TRUE)
   })
 
   observe({
-    updateTextInput(session, "keepnames", label="noms à donner aux colonnes conservées (doit inclure 'Inscrits' et 'Exprimés'", value=input$keep)
+    updateTextInput(session, "keepnames", label="Names for the unchanged columns (should include 'Inscrits' and 'Exprimés'" , value=input$keep)
   })  
   
   
   output$selectCol2 <- renderUI({
-    selectizeInput("colInit", label="Quelle est la première colonne dans laquelle sont situées les nuances politiques ?", choices=names(df()), multiple=FALSE)
+    selectizeInput("colInit", label="Which is the first column with political labels?", choices=names(df()), multiple=FALSE)
   })
   
 
