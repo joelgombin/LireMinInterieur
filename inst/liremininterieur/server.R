@@ -22,7 +22,7 @@ shinyServer(function(input, output, session) {
   
   output$tableau_before <- renderDataTable({
     df()
-  }, options=list(iDisplayLength=10))
+  }, options=list(pageLength=10))
   
   
   output$selectCol <- renderUI({
@@ -57,7 +57,7 @@ shinyServer(function(input, output, session) {
   
   output$tableau_after <- renderDataTable({
     df_trans()
-  }, options=list(iDisplayLength=10))
+  }, options=list(pageLength=10))
   
   output$downloadData <- downloadHandler(
     filename = function() {
