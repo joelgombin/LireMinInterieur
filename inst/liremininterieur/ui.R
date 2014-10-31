@@ -7,6 +7,7 @@ switch(Sys.info()[['sysname']],
 
 shinyUI(fluidPage(
   titlePanel("Transformer les fichiers électoraux du ministère de l'Intérieur"),
+  tags$head(includeScript("google-analytics.js")),
   sidebarLayout(
     sidebarPanel(
       fileInput("file", label = h3("Sélectionner un fichier csv"), accept=c('text/csv', 'text/comma-separated-values,text/plain')),
