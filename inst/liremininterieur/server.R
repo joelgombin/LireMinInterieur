@@ -12,8 +12,8 @@ shinyServer(function(input, output, session) {
       if (input$load==0) df <- NULL
       else {
         # petit hack pour gérer l'encodage. Faut-il intégrer d'autres encodages ?
-        df <- tryCatch(read.csv((input$file)$datapath, header=input$header, sep=input$separator, dec=input$decimal, stringsAsFactor=FALSE),
-                      error = function(c) read.csv((input$file)$datapath, header=input$header, sep=input$separator, dec=input$decimal, stringsAsFactor=FALSE, fileEncoding="ISO8859-1"))  
+        df <- tryCatch(read.csv((input$file)$datapath, header=input$header, sep=input$separator, dec=input$decimal, stringsAsFactor=FALSE, check.names = FALSE),
+                      error = function(c) read.csv((input$file)$datapath, header=input$header, sep=input$separator, dec=input$decimal, stringsAsFactor=FALSE, check.names = FALSE, fileEncoding="ISO8859-1"))  
         names(df) <- iconv(names(df), from="", to="UTF-8")
       }
     })
