@@ -6,4 +6,9 @@ library(devtools)
 install_github("joelgombin/LireMinInterieur")
 ```
 
-Il existe également une version interactive de l'outil : [http://www.joelgombin.fr/shiny/LireMinInterieur/](http://www.joelgombin.fr/shiny/LireMinInterieur/).
+Il existe également une version interactive de l'outil, grâce à `shiny` :
+
+```{r}
+library(LireMinInterieur)
+lireInteractif()
+```
