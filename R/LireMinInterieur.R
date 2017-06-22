@@ -41,8 +41,8 @@ lire <- function(X, keep, col, keep.names = names(res1), gap=3) {
   for (i in 1:length(nuances)) {
     for (j in 1:dim(etiquettes)[1]) {
       index <- which(etiquettes[j,] == nuances[i])
-      res2[j,nuances[i]] <- sum(valeurs[j, index])
-      res2[j,candidats[i]] <- sum(length(index))
+      res2[j,nuances[i]] <- sum(valeurs[j, index], na.rm = TRUE)
+      res2[j,candidats[i]] <- sum(length(index), na.rm = TRUE)
     }
   }  
   
