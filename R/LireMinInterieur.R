@@ -1,6 +1,3 @@
-# compilation en bytecode de la fonction
-compiler::enableJIT(3)
-
 
 #' Fonction pour transformer les fichiers du ministère de l'intérieur en data.frame utilisable
 #' 
@@ -29,6 +26,7 @@ lire <- function(X, keep, col, keep.names = names(res1), gap=3) {
   
   # on récupère l'ensemble des nunances possibles
   nuances <- unique(unlist(X[,col]))[!seq_along(unique(unlist(X[,col]))) %in% match("",unique(unlist(X[,col])))]
+  nuances <- na.omit(nuances)
   
   etiquettes <- as.matrix(X[,col])
   valeurs <- as.matrix(X[,col + gap])
