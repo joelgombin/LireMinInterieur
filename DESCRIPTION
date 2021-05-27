@@ -11,5 +11,4 @@ Description: Ce package offre des outils pour nettoyer les fichiers électoraux
 License: GPL3
 Encoding: UTF-8
 Language: fr
-Imports:
-    shiny
+Depends: shiny, dplyr, tidyselect

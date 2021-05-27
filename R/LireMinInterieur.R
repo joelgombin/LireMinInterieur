@@ -12,6 +12,7 @@
 #'  @return un \code{data.frame} avec les colonnes conservées ainsi que, pour chaque nuance politique, une colonne avec le total des voix, une colonne avec le score rapporté aux inscrits, une colonne avec le score rapporté aux exprimés. Enfin, pour chaque nuance, une colonne indique le nombre de candidats (ou de listes) qu'il y avait dans la circonscription territoriale.
 #'  @export
 #'  @import compiler
+#'  @importFrom dplyr %>%
 #'  @examples
 #'  data(Eur2014Dpts)
 #'  names(Eur2014Dpts)
@@ -19,7 +20,8 @@
 
 lire <- function(X, keep, col, keep.names = names(res1), gap=3) {
   # on s'assure qu'il n'y a pas de factors qui traînent mais que des characters
-  X[,sapply(X, is.factor)] <- as.character(X[,sapply(X, is.factor)])  
+  X <- X %>% 
+    dplyr::mutate(dplyr::across(tidyselect:::where(is.factor), as.character))
   # on crée un df dans lequel on va stocker les résultats
   res1 <- X[,keep]
   names(res1) <- keep.names
